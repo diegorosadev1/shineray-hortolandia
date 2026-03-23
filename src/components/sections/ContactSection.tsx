@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Send, MessageCircle, User, Mail, Phone } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -17,7 +17,8 @@ export const ContactSection = ({ openModal }: ContactSectionProps) => {
     <section id="contato" className="py-32 bg-[#F5F5F7]">
       <div className="container px-4 mx-auto">
         <div className="max-w-screen-2xl mx-auto bg-white rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row border border-gray-100">
-          {/* Left Side: Form (Dark) */}
+          
+          {/* Lado Esquerdo: Formulário (Dark) */}
           <div className="md:w-1/2 p-8 md:p-16 bg-[#1A1A1A] text-white relative overflow-hidden flex flex-col justify-center">
             <div className="relative z-10">
               <span className="text-[#ff0000] font-black tracking-[0.3em] uppercase text-sm mb-4 block italic">Contato</span>
@@ -83,41 +84,51 @@ export const ContactSection = ({ openModal }: ContactSectionProps) => {
             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#ff0000]/10 rounded-full blur-3xl"></div>
           </div>
           
-          {/* Right Side: WhatsApp CTA (Light) */}
+          {/* Lado Direito: WhatsApp CTA (Light) */}
           <div className="md:w-1/2 p-8 md:p-16 flex flex-col justify-center items-center text-center bg-white">
-            <div className="max-w-sm">
+            <div className="max-w-sm flex flex-col items-center">
+              
+              {/* --- NOVO: AVATAR ATENDENTE ESPECIALISTA --- */}
+             
+              {/* --- FIM DO AVATAR --- */}
+
               <h3 className="text-3xl font-black text-[#1A1A1A] uppercase italic tracking-tighter mb-4 leading-tight">
                 Prefere que a gente <br /> entre em contato?
               </h3>
-              <p className="text-gray-500 font-medium mb-12">
+              <p className="text-gray-500 font-medium mb-10">
                 Preencha os campos ao lado ou inicie um atendimento agora mesmo pelo WhatsApp.
               </p>
               
               <button 
                 onClick={openModal}
-                className="w-full bg-[#25D366] text-white py-6 rounded-2xl font-black text-xl hover:bg-[#1eb954] transition-all shadow-xl shadow-[#25D366]/20 flex items-center justify-center gap-4 uppercase tracking-tighter italic"
+                className="w-full bg-[#25D366] text-white py-6 rounded-2xl font-black text-xl hover:bg-[#1eb954] transition-all shadow-xl shadow-[#25D366]/20 flex items-center justify-center gap-4 uppercase tracking-tighter italic hover:scale-[1.02] active:scale-[0.98]"
               >
                 <MessageCircle size={28} />
                 INICIAR ATENDIMENTO
               </button>
               
-              <div className="mt-12 pt-12 border-t border-gray-100 flex flex-col items-center gap-4">
-                <div className="flex -space-x-4">
-                  {[1, 2, 3].map(i => (
-                    <img 
-                      key={i} 
-                      src={`https://picsum.photos/seed/consultant${i}/100/100`} 
-                      className="w-12 h-12 rounded-full border-4 border-white object-cover shadow-md" 
-                      alt="Consultor" 
-                      referrerPolicy="no-referrer"
+              <div className="flex flex-col items-center mb-8 mt-10">
+                <div className="relative group">
+                  {/* Efeito de Pulsação Online */}
+                  <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-40 transition-opacity"></div>
+
+                  {/* Container da Imagem Principal */}
+                  <div className="relative w-24 h-24 rounded-full border-4 border-white shadow-2xl overflow-hidden bg-gray-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200"
+                      alt="Atendente Comercial"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                  ))}
+                  </div>
+
+                  {/* Badge de Status Online (Bolinha Verde) */}
+                  <div className="absolute bottom-1.5 right-1.5 w-6 h-6 bg-green-500 border-4 border-white rounded-full shadow-lg"></div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <p className="text-xs font-black text-gray-400 uppercase tracking-widest">Consultores Online</p>
+                <div className="flex items-center gap-2 mt-3">
+                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Especialista online</p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>

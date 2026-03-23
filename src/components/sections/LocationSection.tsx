@@ -8,7 +8,7 @@ export const LocationSection = () => {
   const googleMapsUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.348663806085!2d-47.2185579!3d-22.826543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8bc0394000001%3A0x633e660e58863f6!2sShineray%20Hortol%C3%A2ndia!5e0!3m2!1spt-BR!2sbr!4v1711210000000!5m2!1spt-BR!2sbr`;
 
   return (
-    <section className="bg-[#0a0a0a] py-20 relative overflow-hidden">
+    <section id="localizacao" className="bg-[#0a0a0a] py-20 relative overflow-hidden">
       {/* Background Accents */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#ff0000]/5 -skew-x-12 transform translate-x-1/2"></div>
       

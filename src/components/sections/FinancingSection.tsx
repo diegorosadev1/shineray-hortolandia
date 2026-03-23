@@ -10,7 +10,7 @@ export const FinancingSection = () => {
   };
 
   return (
-    <section className="bg-white py-20 px-4">
+    <section id="financiamento" className="bg-white py-20 px-4">
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         
         {/* Left Side: Content */}

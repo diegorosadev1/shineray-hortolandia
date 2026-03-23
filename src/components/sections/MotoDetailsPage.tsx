@@ -226,12 +226,7 @@ export const MotoDetailsPage: React.FC<{ openModal?: () => void }> = ({
               icon={<Calculator size={20} />}
               label="Quero Financiar"
             />
-            <TabButton
-              active={activeTab === "trade"}
-              onClick={() => setActiveTab("trade")}
-              icon={<Repeat size={20} />}
-              label="Quero Trocar"
-            />
+   
           </div>
 
           <div className="bg-white border border-gray-100 min-h-[400px]">
@@ -240,7 +235,6 @@ export const MotoDetailsPage: React.FC<{ openModal?: () => void }> = ({
             )}
             {activeTab === "details" && <DetailsTab />}
             {activeTab === "finance" && <FinanceTab moto={moto} />}
-            {activeTab === "trade" && <TradeTab moto={moto} />}
           </div>
         </div>
 
@@ -438,21 +432,25 @@ const InterestedTab = ({
           </button>
 
           <div className="mt-8 md:mt-12 pt-8 md:pt-12 border-t border-gray-100 flex flex-col items-center gap-4">
-            <div className="flex -space-x-4">
-              {[1, 2, 3].map((i) => (
-                <img
-                  key={i}
-                  src={`https://picsum.photos/seed/consultant${i}/100/100`}
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white object-cover shadow-md"
-                  alt="Consultor"
-                  referrerPolicy="no-referrer"
-                />
-              ))}
-            </div>
+           <div className="relative group">
+                  {/* Efeito de Pulsação Online */}
+                  <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-40 transition-opacity"></div>
+
+                  {/* Container da Imagem Principal */}
+                  <div className="relative w-24 h-24 rounded-full border-4 border-white shadow-2xl overflow-hidden bg-gray-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200"
+                      alt="Atendente Comercial"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Badge de Status Online (Bolinha Verde) */}
+                  <div className="absolute bottom-1.5 right-1.5 w-6 h-6 bg-green-500 border-4 border-white rounded-full shadow-lg"></div>
+                </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
-                Consultores Online
+                Especialista Online
               </p>
             </div>
           </div>
@@ -515,9 +513,9 @@ const FinanceTab = ({ moto }: { moto: any }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
         {/* Left Side: Content */}
         <div className="flex flex-col gap-6 md:gap-8">
-          <div className="relative rounded-[2.5rem] md:rounded-[40px] overflow-hidden aspect-[16/10] shadow-2xl">
+          <div className="relative rounded-[2.5rem] md:rounded-[40px] overflow-hidden aspect-[16/10] ">
             <img
-              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop"
+              src="\assets\img\finance.png"
               alt="Financiamento Shineray"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

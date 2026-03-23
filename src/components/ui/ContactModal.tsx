@@ -59,18 +59,22 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 <span className="text-white font-black italic uppercase tracking-tighter transform skew-x-12 block">SHINERAY</span>
               </div>
 
-              <div className="relative mb-4">
-                <div className="w-24 h-24 rounded-full bg-[#ff0000] p-1">
-                  <img 
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-                    alt="Attendant" 
-                    className="w-full h-full rounded-full bg-white"
-                  />
+         <div className="relative group">
+                  {/* Efeito de Pulsação Online */}
+                  <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-40 transition-opacity"></div>
+
+                  {/* Container da Imagem Principal */}
+                  <div className="relative w-24 h-24 rounded-full border-4 border-white shadow-2xl overflow-hidden bg-gray-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200"
+                      alt="Atendente Comercial"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Badge de Status Online (Bolinha Verde) */}
+                  <div className="absolute bottom-1.5 right-1.5 w-6 h-6 bg-green-500 border-4 border-white rounded-full shadow-lg"></div>
                 </div>
-                <div className="absolute bottom-0 right-0 bg-[#00ff00] p-2 rounded-full border-4 border-white">
-                  <MessageCircle size={16} className="text-white" />
-                </div>
-              </div>
 
               <h3 className="text-black font-black italic uppercase text-lg leading-tight max-w-[250px]">
                 Antes de te direcionar para um dos nossos vendedores, precisamos saber:

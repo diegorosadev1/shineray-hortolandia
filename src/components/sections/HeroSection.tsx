@@ -29,7 +29,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen md:h-[90vh] flex items-center overflow-hidden bg-[#0a0a0a]">
+    <section id="" className="relative min-h-screen md:h-[90vh] flex items-center overflow-hidden bg-[#0a0a0a]">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
         <video

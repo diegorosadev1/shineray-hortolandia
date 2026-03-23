@@ -84,17 +84,24 @@ export const Footer = ({ openModal }: FooterProps) => {
               <div className="absolute top-0 right-0 w-24 h-24 bg-[#25D366]/10 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
               
               <div className="flex items-center gap-4 mb-6">
-                <div className="relative">
-                  <img 
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-                    alt="Attendant" 
-                    className="w-14 h-14 rounded-2xl bg-zinc-800 border border-white/10 object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#25D366] rounded-full border-4 border-zinc-900 animate-pulse"></div>
+                 <div className="relative group">
+                  {/* Efeito de Pulsação Online */}
+                  <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-40 transition-opacity"></div>
+
+                  {/* Container da Imagem Principal */}
+                  <div className="relative w-14 h-14 rounded-full border-4 border-white shadow-2xl overflow-hidden bg-gray-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200"
+                      alt="Atendente Comercial"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Badge de Status Online (Bolinha Verde) */}
+                  <div className="absolute bottom-1.5 right-1.5 w-4 h-4 bg-green-500 border-4 border-white rounded-full shadow-lg"></div>
                 </div>
                 <div>
-                  <p className="text-white font-black italic uppercase text-sm leading-tight">Suporte Online</p>
+                  <p className="text-white font-black italic uppercase text-sm leading-tight">Especialista Online</p>
                   <p className="text-[#25D366] text-[10px] font-black uppercase tracking-widest">Disponível agora</p>
                 </div>
               </div>
