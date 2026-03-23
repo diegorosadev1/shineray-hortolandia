@@ -39,7 +39,7 @@ export const InventoryPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#f4f4f4] text-[#1a1a1a] font-sans">
+    <div className="min-h-screen bg-[#f4f4f4] text-[#1a1a1a] font-sans " >
       {/* Hero Header - Avance Style: Concise & Neutral */}
       <section className="relative h-[40vh] md:h-[45vh] flex items-center justify-center overflow-hidden bg-white border-b border-gray-100">
         {/* Background Image with Blur */}
@@ -51,13 +51,13 @@ export const InventoryPage = () => {
           />
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center ">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-7xl font-black text-[#666] italic uppercase tracking-tighter mb-4">
+            <h1 className="text-5xl md:text-7xl font-black text-[#666] italic uppercase tracking-tighter mb-4 mt-20">
               NOSSO ESTOQUE
             </h1>
             <p className="text-sm md:text-base text-gray-600 max-w-xl mx-auto leading-relaxed font-medium">
