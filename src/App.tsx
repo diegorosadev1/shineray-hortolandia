@@ -3,20 +3,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { Header } from './components/layout/Header';
-import { Footer } from './components/layout/Footer';
-import { WhatsAppButton } from './components/layout/WhatsAppButton';
-import { FeaturesSection } from './components/sections/FeaturesSection';
-import { ShowroomSection } from './components/sections/ShowroomSection';
-import { FinancingSection } from './components/sections/FinancingSection';
-import { LocationSection } from './components/sections/LocationSection';
-import { ContactSection } from './components/sections/ContactSection';
-import { HeroSection } from './components/sections/HeroSection';
-import { InventoryPage } from './components/sections/InventoryPage';
-import { MotoDetailsPage } from './components/sections/MotoDetailsPage';
-import { ContactModal } from './components/ui/ContactModal';
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./components/layout/Header";
+import { Footer } from "./components/layout/Footer";
+import { WhatsAppButton } from "./components/layout/WhatsAppButton";
+import { FeaturesSection } from "./components/sections/FeaturesSection";
+import { ShowroomSection } from "./components/sections/ShowroomSection";
+import { FinancingSection } from "./components/sections/FinancingSection";
+import { LocationSection } from "./components/sections/LocationSection";
+import { ContactSection } from "./components/sections/ContactSection";
+import { HeroSection } from "./components/sections/HeroSection";
+import { InventoryPage } from "./components/sections/InventoryPage";
+import { MotoDetailsPage } from "./components/sections/MotoDetailsPage";
+import { ContactModal } from "./components/ui/ContactModal";
+import { BackToTopButton } from "./components/layout/BackToTopButton";
 
 const LandingPage = ({ openModal }: { openModal: () => void }) => (
   <>
@@ -46,31 +47,41 @@ export default function App() {
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       <Routes>
-        <Route path="/" element={
-          <div className="bg-[#0a0a0a]">
-            <LandingPage openModal={openContactModal} />
-          </div>
-        } />
-        <Route path="/estoque" element={
-          <div className="bg-[#f8f8f8]">
-            <InventoryPage />
-            <div className="max-w-screen-2xl mx-auto py-12 px-4">
-              <Footer openModal={openContactModal} />
+        <Route
+          path="/"
+          element={
+            <div className="bg-[#0a0a0a]">
+              <LandingPage openModal={openContactModal} />
             </div>
-          </div>
-        } />
-        <Route path="/moto/:id" element={
-          <div className="bg-[#f5f5f5]">
-            <MotoDetailsPage openModal={openContactModal} />
-            <div className="max-w-screen-2xl mx-auto py-12 px-4">
-              <Footer openModal={openContactModal} />
+          }
+        />
+        <Route
+          path="/estoque"
+          element={
+            <div className="bg-[#f8f8f8]">
+              <InventoryPage />
+              <div className="max-w-screen-2xl mx-auto py-12 px-4">
+                <Footer openModal={openContactModal} />
+              </div>
             </div>
-          </div>
-        } />
+          }
+        />
+        <Route
+          path="/moto/:id"
+          element={
+            <div className="bg-[#f5f5f5]">
+              <MotoDetailsPage openModal={openContactModal} />
+              <div className="max-w-screen-2xl mx-auto py-12 px-4">
+                <Footer openModal={openContactModal} />
+              </div>
+            </div>
+          }
+        />
       </Routes>
 
       <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
-      <WhatsAppButton />
+      <WhatsAppButton openModal={openContactModal} />
+      <BackToTopButton />
     </div>
   );
 }

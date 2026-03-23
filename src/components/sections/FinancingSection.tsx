@@ -15,9 +15,9 @@ export const FinancingSection = () => {
         
         {/* Left Side: Content */}
         <div className="flex flex-col gap-8">
-          <div className="relative rounded-[40px] overflow-hidden aspect-[16/10] shadow-2xl">
+          <div className="relative rounded-[40px] overflow-hidden aspect-[16/10] ">
             <img 
-              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" 
+              src="\assets\img\finance.png" 
               alt="Financiamento Shineray" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
