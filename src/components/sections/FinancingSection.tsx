@@ -13,13 +13,15 @@ export const FinancingSection = () => {
     <section id="financiamento" className="bg-white py-20 px-4">
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         
-        {/* Left Side: Content */}
-        <div className="flex flex-col gap-8">
-          <div className="relative rounded-[40px] overflow-hidden aspect-[16/10] ">
+        {/* Lado Esquerdo: Conteúdo */}
+        <div className="flex flex-col gap-8 lg:sticky lg:top-32">
+          
+          {/* --- AJUSTE AQUI: Container da imagem menor --- */}
+          <div className="relative rounded-[40px] overflow-hidden aspect-video max-w-xl mx-auto lg:mx-0 w-full ">
             <img 
               src="\assets\img\finance.png" 
               alt="Financiamento Shineray" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -34,19 +36,19 @@ export const FinancingSection = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all hover:border-[#ff0000]/20">
               <CheckCircle2 className="text-[#ff0000]" size={24} />
               <span className="text-black font-black italic uppercase text-sm tracking-tight">Aprovação em 30min</span>
             </div>
-            <div className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all">
+            <div className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all hover:border-[#ff0000]/20">
               <CheckCircle2 className="text-[#ff0000]" size={24} />
               <span className="text-black font-black italic uppercase text-sm tracking-tight">Zero de Entrada</span>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Form Card */}
+        {/* Lado Direito: Card do Formulário */}
         <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-50 flex flex-col gap-10">
           
           {/* Sliders */}

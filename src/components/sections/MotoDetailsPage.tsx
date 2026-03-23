@@ -512,40 +512,36 @@ const FinanceTab = ({ moto }: { moto: any }) => {
     <div className="p-4 md:p-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
         {/* Left Side: Content */}
-        <div className="flex flex-col gap-6 md:gap-8">
-          <div className="relative rounded-[2.5rem] md:rounded-[40px] overflow-hidden aspect-[16/10] ">
-            <img
-              src="\assets\img\finance.png"
-              alt="Financiamento Shineray"
-              className="w-full h-full object-cover"
+        <div className="flex flex-col gap-8 lg:sticky lg:top-32">
+          
+          {/* --- AJUSTE AQUI: Container da imagem menor --- */}
+          <div className="relative rounded-[40px] overflow-hidden aspect-video max-w-xl mx-auto lg:mx-0 w-full ">
+            <img 
+              src="\assets\img\finance.png" 
+              alt="Financiamento Shineray" 
+              className="w-full h-full object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
 
-          <div className="flex flex-col gap-4 px-2 md:px-0">
-            <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter leading-none">
+          <div className="flex flex-col gap-4">
+            <h2 className="text-black text-5xl font-black italic uppercase tracking-tighter leading-none">
               FINANCIAMENTO <br />
-              <span className="text-[#ff0000]">{moto.name}</span>
+              <span className="text-[#ff0000]">SHINERAY</span>
             </h2>
-            <p className="text-gray-600 text-sm leading-relaxed max-w-lg">
-              Realize o sonho da sua moto nova com aprovação rápida e as
-              melhores taxas de Hortolândia. Simule agora e receba uma proposta
-              personalizada em minutos.
+            <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
+              Realize o sonho da sua moto nova com aprovação rápida e as melhores taxas de Hortolândia. Simule agora e receba uma proposta personalizada em minutos.
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 md:gap-4 px-2 md:px-0">
-            <div className="bg-white border border-gray-100 p-4 md:p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all">
-              <CheckCircle2 className="text-[#ff0000]" size={20} />
-              <span className="text-black font-black italic uppercase text-[10px] md:text-xs tracking-tight">
-                Aprovação em 30min
-              </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all hover:border-[#ff0000]/20">
+              <CheckCircle2 className="text-[#ff0000]" size={24} />
+              <span className="text-black font-black italic uppercase text-sm tracking-tight">Aprovação em 30min</span>
             </div>
-            <div className="bg-white border border-gray-100 p-4 md:p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all">
-              <CheckCircle2 className="text-[#ff0000]" size={20} />
-              <span className="text-black font-black italic uppercase text-[10px] md:text-xs tracking-tight">
-                Zero de Entrada
-              </span>
+            <div className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm flex items-center gap-4 group hover:shadow-md transition-all hover:border-[#ff0000]/20">
+              <CheckCircle2 className="text-[#ff0000]" size={24} />
+              <span className="text-black font-black italic uppercase text-sm tracking-tight">Zero de Entrada</span>
             </div>
           </div>
         </div>
