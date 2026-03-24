@@ -228,24 +228,6 @@ export const InventoryPage = () => {
               </div>
             </div>
 
-            {/* Plate End Filter */}
-            <div className="bg-white p-5 rounded-none shadow-sm border border-gray-100">
-              <h3 className="text-black font-black italic uppercase text-[10px] tracking-[0.2em] mb-4 flex items-center gap-2">
-                <div className="w-2 h-4 bg-[#ff0000] transform -skew-x-12"></div>
-                Final da Placa
-              </h3>
-              <div className="grid grid-cols-5 gap-1">
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-                  <button 
-                    key={num} 
-                    onClick={() => setFilters({ ...filters, plateEnd: filters.plateEnd === num.toString() ? '' : num.toString() })}
-                    className={`p-2 rounded-none border text-[9px] font-bold uppercase italic transition-all ${filters.plateEnd === num.toString() ? 'bg-[#ff0000] text-white border-[#ff0000]' : 'border-gray-100 text-gray-500 hover:border-[#ff0000] hover:text-[#ff0000]'}`}
-                  >
-                    {num}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             {/* Color Filter */}
             <div className="bg-white p-5 rounded-none shadow-sm border border-gray-100">

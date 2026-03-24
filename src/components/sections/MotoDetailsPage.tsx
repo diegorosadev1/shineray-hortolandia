@@ -184,22 +184,7 @@ export const MotoDetailsPage: React.FC<{ openModal?: () => void }> = ({
                   value={moto.color}
                 />
 
-                <div className="pt-6 mt-6 border-t border-gray-100">
-                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">
-                    Placa Final
-                  </div>
-                  <div className="relative inline-block">
-                    <div className="bg-white border-2 border-black rounded-md px-6 py-2 flex items-center gap-2">
-                      <div className="w-3 h-2 bg-blue-600 rounded-sm"></div>
-                      <span className="font-mono text-xl font-bold tracking-widest text-gray-300">
-                        XXX
-                      </span>
-                      <span className="font-mono text-xl font-bold text-black">
-                        {moto.id.slice(-1)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+        
               </div>
             </div>
           </div>
