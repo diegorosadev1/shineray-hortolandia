@@ -18,26 +18,33 @@ export const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
       setIsScrolled(window.scrollY > 50);
     };
     
-    // Check scroll position on mount/route change
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location]);
 
+  // Trava o scroll do body quando o menu mobile está aberto
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'NOSSO ESTOQUE', path: '/estoque' },
     { name: 'Financiamento', path: '/#financiamento' },
-      { name: 'Localizacao', path: '/#localizacao' },
+    { name: 'Localizacao', path: '/#localizacao' },
     { name: 'Contato', path: '/#contato' },
   ];
 
   const isInventoryPage = location.pathname === '/estoque';
   const isMotoDetailsPage = location.pathname.startsWith('/moto/');
   
-  // Agora useDarkText só é true na página de estoque (fundo branco) 
-  // Na página de detalhes (Hero preto), o texto deve ser sempre branco
+  // Texto escuro apenas na página de estoque sem scroll
   const useDarkText = !isScrolled && isInventoryPage;
 
   const handleNavClick = (e: React.MouseEvent, path: string) => {
@@ -128,12 +135,12 @@ export const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle Button */}
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)} 
           className={`md:hidden w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${
             useDarkText 
-              ? 'bg-black/5 text-zinc-900' 
+              ? 'bg-black/5 text-zinc-900 border border-black/10' 
               : 'bg-white/5 text-white border border-white/10'
           }`}
         >
@@ -141,37 +148,67 @@ export const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-[150] bg-black md:hidden flex flex-col"
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[200] bg-black md:hidden flex flex-col"
           >
-            <div className="px-6 py-6 flex justify-between items-center border-b border-white/5">
+            {/* Menu Header (Top bar interna do menu) */}
+            <div className="px-6 py-6 flex justify-between items-center border-b border-white/10 bg-black">
               <Link to="/" onClick={() => setIsMenuOpen(false)}>
                 <div className="bg-[#ff0000] px-4 py-1.5 transform -skew-x-12">
                   <span className="text-white font-black italic text-xl transform skew-x-12 block uppercase">SHINERAY</span>
                 </div>
               </Link>
-              <button onClick={() => setIsMenuOpen(false)} className="text-white"><X size={24} /></button>
+              <button 
+                onClick={() => setIsMenuOpen(false)} 
+                className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-xl text-white"
+              >
+                <X size={24} />
+              </button>
             </div>
 
-            <div className="flex flex-col p-6 gap-2">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  to={link.path} 
-                  onClick={(e) => handleNavClick(e, link.path)}
-                  className={`block w-full p-5 text-2xl font-black italic uppercase tracking-tighter transition-all ${
-                    location.pathname === link.path ? 'text-[#ff0000]' : 'text-white'
-                  }`}
+            {/* Menu Links */}
+            <div className="flex flex-col p-6 gap-2 bg-black flex-grow">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {link.name}
-                </Link>
+                  <Link 
+                    to={link.path} 
+                    onClick={(e) => handleNavClick(e, link.path)}
+                    className={`block w-full p-5 text-2xl font-black italic uppercase tracking-tighter transition-all rounded-xl ${
+                      location.pathname === link.path 
+                        ? 'bg-[#ff0000] text-white shadow-lg' 
+                        : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
+            </div>
+
+            {/* Menu Footer */}
+            <div className="p-8 flex flex-col gap-6 bg-zinc-900">
+                <div className="flex flex-col gap-4">
+                    <span className="text-zinc-500 text-[10px] font-black uppercase tracking-widest">Siga-nos</span>
+                    <div className="flex gap-6">
+                        <Instagram size={24} className="text-white hover:text-[#ff0000] transition-colors" />
+                        <Facebook size={24} className="text-white hover:text-[#ff0000] transition-colors" />
+                    </div>
+                </div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-zinc-600">
+                    © 2026 SHINERAY HORTOLÂNDIA
+                </p>
             </div>
           </motion.div>
         )}

@@ -29,8 +29,8 @@ export const MotoCardV3 = ({ id, image, name, price, year, placaFinal }: MotoPro
 
       <div className="relative z-10 p-5 md:p-6 -mt-4 flex-1 flex flex-col">
         <div className="flex justify-between items-center gap-2 mb-4">
-          <div className="bg-white text-black px-3 md:px-4 py-1 font-black italic text-base md:text-xl shadow-lg transform -skew-x-12 shrink-0">
-            <span className="inline-block transform skew-x-12">
+          <div className="bg-[#ff0000] text-black px-3 md:px-4 py-1 font-black italic text-base md:text-xl shadow-lg transform -skew-x-12 shrink-0">
+            <span className="text-white inline-block transform skew-x-12">
               R$ {price.toLocaleString('pt-BR')}
             </span>
           </div>
