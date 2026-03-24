@@ -1,20 +1,35 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🏍️ Shineray Hortolândia
 
-# Run and deploy your AI Studio app
+Repositório oficial do sistema web da concessionária **Shineray Hortolândia**. Este projeto contempla uma landing page de alta performance, catálogo digital de veículos e um painel administrativo para gestão de estoque e leads.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/1abc6a97-bc79-4988-93f3-ca3b44095224
+## 🚀 Tecnologias
 
-## Run Locally
+O projeto utiliza uma stack moderna focada em performance, escalabilidade e SEO:
 
-**Prerequisites:**  Node.js
+* **Frontend:** [Next.js](https://nextjs.org/) (React)
+* **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+* **Hospedagem:** [Vercel](https://vercel.com/)
+* **Linguagem:** TypeScript
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠️ Funcionalidades
+
+* **Catálogo de Produtos:** Listagem dinâmica de motos elétricas, combustão e scooters.
+* **Filtros Inteligentes:** Busca por categoria, cor, preço e cilindrada.
+* **Integração WhatsApp:** Botão flutuante e formulários com redirecionamento direto.
+* **Otimização SEO:** Estrutura focada em rankeamento local para Hortolândia e região.
+* **Responsividade:** Interface 100% adaptada para dispositivos móveis.
+
+---
+
+## 📁 Estrutura de Pastas
+
+```text
+├── apps/
+│   ├── web/          # Frontend Next.js & Tailwind
+│   └── server/       # API NestJS & Integração Supabase
+├── packages/         # Configurações compartilhadas (ESLint, TSConfig)
+└── .env.example      # Exemplo de variáveis de ambiente
